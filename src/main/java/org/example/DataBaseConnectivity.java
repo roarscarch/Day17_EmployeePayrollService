@@ -22,7 +22,22 @@ public class DataBaseConnectivity {
         dbConnectivity.readEmployee(connection);
 
 
-        updateData(connection);
+        //updateData(connection);
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter employee name: ");
+        String employeeName = sc.nextLine();
+        sc.close();
+
+
+        List<Double> salaries = retrieveDataByName(connection, employeeName);
+
+        if (!salaries.isEmpty()) {
+            System.out.println("Salaries of " + employeeName + ": " + salaries);
+        } else {
+            System.out.println("No employee found with the name: " + employeeName);
+        }
+
     }
 
     public void readEmployee(Connection connection) {
@@ -87,4 +102,22 @@ public class DataBaseConnectivity {
             sc.close();
         }
     }
+
+    public static List<Double> retrieveDataByName(Connection connection, String employeeName) throws SQLException {
+        List<Double> salaries = new ArrayList<>();
+        String sqlQuery = "SELECT salary FROM employee_payroll WHERE name = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            preparedStatement.setString(1, employeeName);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                double salary = resultSet.getDouble("salary");
+                salaries.add(salary);
+            }
+        }
+
+        return salaries;
+    }
+
 }
