@@ -17,11 +17,11 @@ public class DataBaseConnectivity {
         Connection connection = jdbc.getConnection();
         System.out.println("Database connection to payroll_service established.");
 
-        // Example: Call the readEmployee method using the established connection
+
         DataBaseConnectivity dbConnectivity = new DataBaseConnectivity();
         dbConnectivity.readEmployee(connection);
 
-        // Example: Call the updateData method using the established connection
+
         updateData(connection);
     }
 
@@ -75,7 +75,7 @@ public class DataBaseConnectivity {
         } catch (SQLException | java.util.InputMismatchException exception) {
             exception.printStackTrace();
         } finally {
-            // Close resources (e.g., PreparedStatement and Scanner)
+
             try {
                 if (preparedStatement != null) {
                     preparedStatement.close();
