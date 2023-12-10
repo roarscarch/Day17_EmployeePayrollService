@@ -38,21 +38,23 @@ public class DataBaseConnectivity {
 //            System.out.println("No employee found with the name: " + employeeName);
 //        }
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter start date (yyyy-mm-dd): ");
-        String startDate = sc.nextLine();
-        System.out.println("Enter end date (yyyy-mm-dd): ");
-        String endDate = sc.nextLine();
-        sc.close();
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter start date (yyyy-mm-dd): ");
+//        String startDate = sc.nextLine();
+//        System.out.println("Enter end date (yyyy-mm-dd): ");
+//        String endDate = sc.nextLine();
+//        sc.close();
+//
+//
+//        List<String> names = particularDateRange(connection, startDate, endDate);
+//
+//        if (!names.isEmpty()) {
+//            System.out.println("Names within the date range: " + names);
+//        } else {
+//            System.out.println("No records found within the specified date range.");
+//        }
 
-
-        List<String> names = particularDateRange(connection, startDate, endDate);
-
-        if (!names.isEmpty()) {
-            System.out.println("Names within the date range: " + names);
-        } else {
-            System.out.println("No records found within the specified date range.");
-        }
+        analyzeByGender(connection);
 
     }
 
@@ -154,6 +156,33 @@ public class DataBaseConnectivity {
         }
 
         return names;
+    }
+
+    public static void analyzeByGender(Connection connection) throws SQLException {
+        String query = "SELECT gender, SUM(salary) AS total_salary, AVG(salary) AS average_salary, " +
+                "MIN(salary) AS min_salary, MAX(salary) AS max_salary, COUNT(*) AS employee_count " +
+                "FROM employee_payroll GROUP BY gender";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String gender = resultSet.getString("gender");
+                double totalSalary = resultSet.getDouble("total_salary");
+                double averageSalary = resultSet.getDouble("average_salary");
+                double minSalary = resultSet.getDouble("min_salary");
+                double maxSalary = resultSet.getDouble("max_salary");
+                int employeeCount = resultSet.getInt("employee_count");
+
+                System.out.println("Gender: " + gender);
+                System.out.println("Total Salary: " + totalSalary);
+                System.out.println("Average Salary: " + averageSalary);
+                System.out.println("Min Salary: " + minSalary);
+                System.out.println("Max Salary: " + maxSalary);
+                System.out.println("Number of Employees: " + employeeCount);
+                System.out.println();
+            }
+        }
     }
 
 
