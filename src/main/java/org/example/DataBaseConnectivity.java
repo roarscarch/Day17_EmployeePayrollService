@@ -24,21 +24,38 @@ public class DataBaseConnectivity {
 
         //updateData(connection);
 
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter employee name: ");
+//        String employeeName = sc.nextLine();
+//        sc.close();
+//
+//
+//        List<Double> salaries = retrieveDataByName(connection, employeeName);
+//
+//        if (!salaries.isEmpty()) {
+//            System.out.println("Salaries of " + employeeName + ": " + salaries);
+//        } else {
+//            System.out.println("No employee found with the name: " + employeeName);
+//        }
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter employee name: ");
-        String employeeName = sc.nextLine();
+        System.out.println("Enter start date (yyyy-mm-dd): ");
+        String startDate = sc.nextLine();
+        System.out.println("Enter end date (yyyy-mm-dd): ");
+        String endDate = sc.nextLine();
         sc.close();
 
 
-        List<Double> salaries = retrieveDataByName(connection, employeeName);
+        List<String> names = particularDateRange(connection, startDate, endDate);
 
-        if (!salaries.isEmpty()) {
-            System.out.println("Salaries of " + employeeName + ": " + salaries);
+        if (!names.isEmpty()) {
+            System.out.println("Names within the date range: " + names);
         } else {
-            System.out.println("No employee found with the name: " + employeeName);
+            System.out.println("No records found within the specified date range.");
         }
 
     }
+
 
     public void readEmployee(Connection connection) {
         List<Employee> employeeList = new ArrayList<>();
@@ -119,5 +136,25 @@ public class DataBaseConnectivity {
 
         return salaries;
     }
+
+    public static List<String> particularDateRange(Connection connection, String startDate, String endDate) throws SQLException {
+        List<String> names = new ArrayList<>();
+        String query = "SELECT * FROM employee_payroll WHERE startDate BETWEEN ? AND ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, startDate);
+        preparedStatement.setString(2, endDate);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            System.out.println(" ");
+            System.out.println(resultSet.getInt(1));
+            System.out.println(resultSet.getString(2));
+            String name = resultSet.getString("name");
+            names.add(name);
+        }
+
+        return names;
+    }
+
 
 }
