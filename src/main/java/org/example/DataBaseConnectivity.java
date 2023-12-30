@@ -22,37 +22,37 @@ public class DataBaseConnectivity {
         dbConnectivity.readEmployee(connection);
 
 
-        //updateData(connection);
+        updateData(connection);
 
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter employee name: ");
-//        String employeeName = sc.nextLine();
-//        sc.close();
-//
-//
-//        List<Double> salaries = retrieveDataByName(connection, employeeName);
-//
-//        if (!salaries.isEmpty()) {
-//            System.out.println("Salaries of " + employeeName + ": " + salaries);
-//        } else {
-//            System.out.println("No employee found with the name: " + employeeName);
-//        }
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter employee name: ");
+       String employeeName = sc.nextLine();
+       sc.close();
 
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter start date (yyyy-mm-dd): ");
-//        String startDate = sc.nextLine();
-//        System.out.println("Enter end date (yyyy-mm-dd): ");
-//        String endDate = sc.nextLine();
-//        sc.close();
-//
-//
-//        List<String> names = particularDateRange(connection, startDate, endDate);
-//
-//        if (!names.isEmpty()) {
-//            System.out.println("Names within the date range: " + names);
-//        } else {
-//            System.out.println("No records found within the specified date range.");
-//        }
+
+       List<Double> salaries = retrieveDataByName(connection, employeeName);
+
+       if (!salaries.isEmpty()) {
+           System.out.println("Salaries of " + employeeName + ": " + salaries);
+       } else {
+           System.out.println("No employee found with the name: " + employeeName);
+       }
+
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter start date (yyyy-mm-dd): ");
+       String startDate = sc.nextLine();
+       System.out.println("Enter end date (yyyy-mm-dd): ");
+       String endDate = sc.nextLine();
+       sc.close();
+
+
+       List<String> names = particularDateRange(connection, startDate, endDate);
+
+       if (!names.isEmpty()) {
+           System.out.println("Names within the date range: " + names);
+       } else {
+           System.out.println("No records found within the specified date range.");
+       }
 
         analyzeByGender(connection);
 
