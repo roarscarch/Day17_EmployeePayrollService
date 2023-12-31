@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class App {
     private static final int EXIT_OPTION = 0;
     private static final int PRINT_ALL_OPTION = 1;
     private static final int ADD_EMPLOYEE_OPTION = 2;

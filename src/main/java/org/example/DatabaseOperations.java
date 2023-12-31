@@ -3,13 +3,13 @@ package org.example;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DBOperations {
+public class DatabaseOperations {
 
     // method to connect with the database
     public static Connection getConnection() {
         Connection connection;
         try {
-            connection = DriverManager.getConnection(Details.URL, Details.USER, Details.PASSWORD);
+            connection = DriverManager.getConnection(DatabaseDetails.URL, DatabaseDetails.USER, DatabaseDetails.PASSWORD);
         } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             exception.printStackTrace();
