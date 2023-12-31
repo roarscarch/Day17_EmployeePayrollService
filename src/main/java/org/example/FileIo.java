@@ -11,6 +11,29 @@ import java.nio.file.Files;
 
 public class FileIo {
 
+
+   public static boolean checkIfExists(String filePath) {
+        Path path = Path.of(filePath);
+        return Files.exists(path);
+    }
+
+
+    public static void createDirectory(String dirPath) {
+        if (!checkIfExists(dirPath)) {
+            Path path = Path.of(dirPath);
+            try {
+                Files.createDirectory(path);
+                System.out.println("Created directory: " + dirPath);
+            } catch (IOException exception) {
+                System.out.println(exception.getMessage());
+                exception.printStackTrace();
+            }
+
+        } else {
+            System.out.println("Directory " + dirPath + " already exists.");
+        }
+    }
+
   
     public static void writeToFile(String filePath, String data) {
         if (checkIfExists(filePath)) {
@@ -45,12 +68,6 @@ public class FileIo {
         return -1;
     }
 
-  
-    public static boolean checkIfExists(String filePath) {
-        Path path = Path.of(filePath);
-        return Files.exists(path);
-    }
-
 
     public static void deleteFile(String filePath) {
         if (checkIfExists(filePath)) {
@@ -83,22 +100,7 @@ public class FileIo {
         }
     }
 
-    public static void createDirectory(String dirPath) {
-        if (!checkIfExists(dirPath)) {
-            Path path = Path.of(dirPath);
-            try {
-                Files.createDirectory(path);
-                System.out.println("Created directory: " + dirPath);
-            } catch (IOException exception) {
-                System.out.println(exception.getMessage());
-                exception.printStackTrace();
-            }
-
-        } else {
-            System.out.println("Directory " + dirPath + " already exists.");
-        }
-    }
-
+  
  
     public static void listFiles(String dirPath) {
         Path path = Path.of(dirPath);
