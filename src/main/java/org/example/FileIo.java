@@ -8,10 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 
-// UC2: performing all file operations
+
 public class FileIo {
 
-    // method to write data to the file
+  
     public static void writeToFile(String filePath, String data) {
         if (checkIfExists(filePath)) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
@@ -26,7 +26,7 @@ public class FileIo {
         }
     }
 
-    // method to count number of lines in a file
+
     public static int countLines(String filePath) {
         if (checkIfExists(filePath)) {
             try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -45,13 +45,13 @@ public class FileIo {
         return -1;
     }
 
-    // method to check if file exists or not
+  
     public static boolean checkIfExists(String filePath) {
         Path path = Path.of(filePath);
         return Files.exists(path);
     }
 
-    // method to delete a file
+
     public static void deleteFile(String filePath) {
         if (checkIfExists(filePath)) {
             Path path = Path.of(filePath);
@@ -67,7 +67,7 @@ public class FileIo {
         }
     }
 
-    // method to create a file
+ 
     public static void createFile(String filePath) {
         if (!checkIfExists(filePath)) {
             Path path = Path.of(filePath);
@@ -83,7 +83,6 @@ public class FileIo {
         }
     }
 
-    // method to create a directory
     public static void createDirectory(String dirPath) {
         if (!checkIfExists(dirPath)) {
             Path path = Path.of(dirPath);
@@ -100,7 +99,7 @@ public class FileIo {
         }
     }
 
-    // method to list all files from a directory
+ 
     public static void listFiles(String dirPath) {
         Path path = Path.of(dirPath);
         if (checkIfExists(dirPath)) {
@@ -119,7 +118,7 @@ public class FileIo {
         }
     }
 
-    // method to list all files with same extension
+   
     public static void listFilesWithExtension(String dirPath, String extention) {
         Path path = Path.of(dirPath);
         if (checkIfExists(dirPath)) {
