@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class App {
     private static final int EXIT_OPTION = 0;
     private static final int PRINT_ALL_OPTION = 1;
     private static final int ADD_EMPLOYEE_OPTION = 2;
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Payroll Service.");
 
-        EmpPayrollService empPayrollService = new EmpPayrollService();
+        EmployeeConsole employeeConsole = new EmployeeConsole();
 
         try (Scanner inputReader = new Scanner(System.in)) {
             boolean continueLoop = true;
@@ -37,33 +37,33 @@ public class Main {
                         break;
 
                     case PRINT_ALL_OPTION:
-                        printEmployees(empPayrollService.getEmployeesFromDB());
+                        printEmployees(employeeConsole.getEmployeesFromDB());
                         break;
 
                     case ADD_EMPLOYEE_OPTION:
-                        empPayrollService.addEmployeeConsole(inputReader);
+                        employeeConsole.addEmployeeConsole(inputReader);
                         break;
 
                     case REMOVE_EMPLOYEE_OPTION:
                         String empName = readInput(inputReader, "Enter employee name: ");
-                        empPayrollService.removeEmployee(empName);
+                        employeeConsole.removeEmployee(empName);
                         break;
 
                     case PRINT_IN_DATE_RANGE_OPTION:
                         String startDate = readInput(inputReader, "Enter start date (YYYY-MM-DD): ");
                         String endDate = readInput(inputReader, "Enter end date (YYYY-MM-DD): ");
-                        printDetailsInRange(empPayrollService.getInDateRange(startDate, endDate));
+                        printDetailsInRange(employeeConsole.getInDateRange(startDate, endDate));
                         break;
 
                     case UPDATE_SALARY_OPTION:
                         String name = readInput(inputReader, "Enter employee name: ");
                         double salary = inputReader.nextDouble();
                         inputReader.nextLine();
-                        empPayrollService.updateSalaryInDB(salary, name);
+                        employeeConsole.updateSalaryInDB(salary, name);
                         break;
 
                     case VIEW_BY_GENDER_OPTION:
-                        printSalaryStatsByGender(empPayrollService.getStatsByGenderFromDB());
+                        printSalaryStatsByGender(employeeConsole.getStatsByGenderFromDB());
                         break;
 
                     default:

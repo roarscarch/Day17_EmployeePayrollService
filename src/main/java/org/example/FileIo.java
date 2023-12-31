@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 // UC2: performing all file operations
-public class FileOperations {
+public class FileIo {
 
     // method to write data to the file
     public static void writeToFile(String filePath, String data) {

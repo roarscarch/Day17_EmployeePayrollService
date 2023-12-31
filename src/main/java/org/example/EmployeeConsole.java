@@ -3,57 +3,57 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class EmpPayrollService {
+public class EmployeeConsole {
     private ArrayList<Employee> employees;
     private String filePath;
 
-    public EmpPayrollService() {
+    public EmployeeConsole() {
         this.employees = new ArrayList<>();
         // connecting to the database
         this.connectDatabase();
     }
 
     // employee payroll constructor with file I/O
-    public EmpPayrollService(String filePath) {
+    public EmployeeConsole(String filePath) {
         this.filePath = filePath;
-        FileOperations.createFile(filePath);
+        FileIo.createFile(filePath);
     }
 
     // DATABASE FUNCTIONS
 
     // connecting to the database
     public void connectDatabase() {
-        DBOperations.getConnection();
+        DatabaseOperations.getConnection();
     }
 
     // method to get all employee data from database
     public ArrayList<Employee> getEmployeesFromDB() {
-        return DBOperations.readEmployees();
+        return DatabaseOperations.readEmployees();
     }
 
     // method to update salary in the database
     public void updateSalaryInDB(double salary, String name) {
-        DBOperations.updateSalary(salary, name);
+        DatabaseOperations.updateSalary(salary, name);
     }
 
     // method to get employees between date range
     public ArrayList<Employee> getInDateRange(String start_date, String end_date) {
-        return DBOperations.getInDataRange(start_date, end_date);
+        return DatabaseOperations.getInDataRange(start_date, end_date);
     }
 
     // method to allow custom query execution
     public ArrayList<String> getQueryDataFromDB(String query) {
-        return DBOperations.getData(query);
+        return DatabaseOperations.getData(query);
     }
 
     // method to get salary stats by gender
     public ArrayList<String> getStatsByGenderFromDB() {
-        return DBOperations.getStatsByGender();
+        return DatabaseOperations.getStatsByGender();
     }
 
     // method to remove an employee from the database
     public void removeEmployee(String name) {
-        DBOperations.removeEmployee(name);
+        DatabaseOperations.removeEmployee(name);
     }
 
     // FILE IO FUNCTIONS
@@ -68,12 +68,12 @@ public class EmpPayrollService {
 
     // method to add a new employee to the file
     public void addEmployeeToFile(Employee employee) {
-        FileOperations.writeToFile(filePath, employee.toCSVString());
+        FileIo.writeToFile(filePath, employee.toCSVString());
     }
 
     // method to count the number of employees in the file
     public int countEmployeesInFile() {
-        return FileOperations.countLines(this.filePath);
+        return FileIo.countLines(this.filePath);
     }
 
     // method to add an employee from the console to the employees list
@@ -102,7 +102,7 @@ public class EmpPayrollService {
 
         Employee employee = new Employee(name, start_date, gender, phone, address, salary, department);
 
-        DBOperations.addEmployee(employee);
+        DatabaseOperations.addEmployee(employee);
     }
 
     // method to print all employees in the employees list

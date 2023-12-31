@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d5df815-20e9-4257-a41d-0d593fa7a54c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FileOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EmpPayrollService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EmpPayrollService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestDBOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Details.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +46,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "UC8-FileOperations",
+    "git-widget-placeholder": "UC9__Adding__Tets",
     "last_opened_file_path": "C:/Users/DELL/IdeaProjects/Day19-JDBC-Payroll-Service/src/main/java/org/example/ERDiagram",
-    "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/Day19-JDBC-Payroll-Service/src/main/java/org/example/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/Day19-JDBC-Payroll-Service/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
