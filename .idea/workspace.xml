@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d5df815-20e9-4257-a41d-0d593fa7a54c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DBOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Details.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/EmpPayrollService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DataBaseConnectivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ERDiagram/ER-Payroll.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JDBC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/payroll_serivce.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SQLCode/payroll_serivce.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FileOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EmpPayrollService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EmpPayrollService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Refactoring",
+    "git-widget-placeholder": "UC8-FileOperations",
     "last_opened_file_path": "C:/Users/DELL/IdeaProjects/Day19-JDBC-Payroll-Service/src/main/java/org/example/ERDiagram",
     "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/Day19-JDBC-Payroll-Service/src/main/java/org/example/Main.java"
   }

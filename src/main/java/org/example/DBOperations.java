@@ -26,7 +26,8 @@ public class DBOperations {
         try (
                 Connection connection = getConnection();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sqlQuery)) {
+                ResultSet resultSet = statement.executeQuery(sqlQuery)
+        ) {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String start_date = resultSet.getString("start_date");
@@ -150,7 +151,8 @@ public class DBOperations {
         String sqlQuery = "update employee_payroll set is_active = false where name = ?;";
         try (
                 Connection connection = getConnection();
-                PreparedStatement statement = connection.prepareStatement(sqlQuery);) {
+                PreparedStatement statement = connection.prepareStatement(sqlQuery);
+        ) {
             statement.setString(1, name);
             statement.executeUpdate();
             System.out.println("Employee removed successfully!\n");
@@ -160,7 +162,7 @@ public class DBOperations {
         }
     }
 
-    // method to update salary of particular entry
+    // method to update salary of a particular entry
     public static void updateSalary(double salary, String name) {
         String sqlUpdateSalary = "update employee_payroll set salary = ? where name = ?;";
         String sqlSelectEmpId = "select emp_id from employee_payroll where name = ?";
@@ -233,7 +235,8 @@ public class DBOperations {
 
         try (
                 Connection connection = getConnection();
-                PreparedStatement statement = connection.prepareStatement(sqlQuery);) {
+                PreparedStatement statement = connection.prepareStatement(sqlQuery);
+        ) {
             statement.setString(1, range_start_date);
             statement.setString(2, range_end_date);
             ResultSet resultSet = statement.executeQuery();
@@ -262,7 +265,8 @@ public class DBOperations {
         try (
                 Connection connection = getConnection();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sqlQuery)) {
+                ResultSet resultSet = statement.executeQuery(sqlQuery)
+        ) {
             while (resultSet.next()) {
                 data.add(resultSet.toString());
             }
@@ -280,7 +284,8 @@ public class DBOperations {
         try (
                 Connection connection = getConnection();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sqlQuery);) {
+                ResultSet resultSet = statement.executeQuery(sqlQuery);
+        ) {
             while (resultSet.next()) {
                 String gender = resultSet.getString("gender");
                 double sum = resultSet.getDouble("sum(salary)");

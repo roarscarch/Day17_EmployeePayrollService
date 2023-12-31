@@ -5,40 +5,78 @@ import java.util.Scanner;
 
 public class EmpPayrollService {
     private ArrayList<Employee> employees;
+    private String filePath;
 
     public EmpPayrollService() {
         this.employees = new ArrayList<>();
+        // connecting to the database
         this.connectDatabase();
     }
 
+    // employee payroll constructor with file I/O
+    public EmpPayrollService(String filePath) {
+        this.filePath = filePath;
+        FileOperations.createFile(filePath);
+    }
+
+    // DATABASE FUNCTIONS
+
+    // connecting to the database
     public void connectDatabase() {
         DBOperations.getConnection();
     }
 
+    // method to get all employee data from database
     public ArrayList<Employee> getEmployeesFromDB() {
         return DBOperations.readEmployees();
     }
 
+    // method to update salary in the database
     public void updateSalaryInDB(double salary, String name) {
         DBOperations.updateSalary(salary, name);
     }
 
+    // method to get employees between date range
     public ArrayList<Employee> getInDateRange(String start_date, String end_date) {
         return DBOperations.getInDataRange(start_date, end_date);
     }
 
+    // method to allow custom query execution
     public ArrayList<String> getQueryDataFromDB(String query) {
         return DBOperations.getData(query);
     }
 
+    // method to get salary stats by gender
     public ArrayList<String> getStatsByGenderFromDB() {
         return DBOperations.getStatsByGender();
     }
 
+    // method to remove an employee from the database
     public void removeEmployee(String name) {
         DBOperations.removeEmployee(name);
     }
 
+    // FILE IO FUNCTIONS
+
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return this.employees;
+    }
+
+    // method to add a new employee to the file
+    public void addEmployeeToFile(Employee employee) {
+        FileOperations.writeToFile(filePath, employee.toCSVString());
+    }
+
+    // method to count the number of employees in the file
+    public int countEmployeesInFile() {
+        return FileOperations.countLines(this.filePath);
+    }
+
+    // method to add an employee from the console to the employees list
     public void addEmployeeConsole(Scanner inputReader) {
         System.out.print("Enter employee Name: ");
         String name = inputReader.nextLine();
@@ -67,12 +105,13 @@ public class EmpPayrollService {
         DBOperations.addEmployee(employee);
     }
 
+    // method to print all employees in the employees list
     @Override
     public String toString() {
-        String data = "";
+        StringBuilder data = new StringBuilder();
         for (Employee employee : this.employees) {
-            data += employee.toString() + "\n";
+            data.append(employee.toString()).append("\n");
         }
-        return data;
+        return data.toString();
     }
 }
